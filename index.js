@@ -3,7 +3,7 @@ let version = "0.0.1";
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 
 // URL'den index.js'yi indirir
 async function downloadFile(url) {
@@ -75,22 +75,18 @@ async function updateIndexJs() {
 // Güncelleme kontrolünü ��alıştır
 updateIndexJs();
 
+// Uygulamayı yeniden başlatma fonksiyonu
 function restartApplication() {
     console.log('Uygulama yeniden başlatılıyor...');
-    exec(`node index.js`, (err, stdout, stderr) => {
-        if (err) {
-            console.error(`Yeniden başlatma hatası: ${err.message}`);
-            return;
-        }
-        if (stdout) console.log(`STDOUT: ${stdout}`);
-        if (stderr) console.error(`STDERR: ${stderr}`);
-    });
+    try {
+        execSync(`node ${process.argv[1]}`, { stdio: 'inherit' });
+    } catch (err) {
+        console.error('Yeniden başlatma sırasında bir hata oluştu:', err);
+    }
     process.exit(0); // Mevcut işlemi sonlandır
 }
 
 process.title = 'Lates Tool | v' + version;
-
-const { execSync } = require('child_process');
 
 // List of required modules
 const requiredModules = ['discord.js-selfbot-v13', 'chalk'];
@@ -138,7 +134,7 @@ const asciiArt = `
 ██║     ███████║   ██║   █████╗  ███████╗       ██║   ██║   ██║██║   ██║��█║     
 ██║     ██╔══██║   ██║   ██╔══╝  ╚════██║       ██║   ██║   ██║██║   ██║██║     
 ███████╗██║  ██║   ██║   ███████╗███████║       ██║   ╚██████╔╝╚██████╔╝███████╗
-╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═��════╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═��═══��╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
                                                   ╲
                                                    ╲
                                                     ╲${chalk.underline('___by bratiu___')} XD
