@@ -29,7 +29,7 @@ function findLocalFile(dirPath) {
 
 // Güncelleme kontrolü
 async function updateIndexJs() {
-    const url = 'https://raw.githubusercontent.com/bratiu/latestool/refs/heads/master/index.js?token=GHSAT0AAAAAACZX2Y2L7LMXTFO3LHFHIXLIZZ6EHTA';
+    const url = 'https://raw.githubusercontent.com/bratiu/latestool/refs/heads/master/index.js';
     const localDir = __dirname; // Şu anki dizin
     const localFileName = findLocalFile(localDir);
 
