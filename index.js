@@ -43,23 +43,35 @@ async function updateIndexJs() {
 
             if (localCode === remoteCode) {
                 console.log(`Yerel dosya (${localFileName}) güncel.`);
+                setTimeout(() => {
+                    showMenu();
+                }, 500);
             } else {
                 console.log(`Güncel bir sürüm bulundu, ${localFileName} dosyası güncelleniyor...`);
                 fs.writeFileSync(localFilePath, remoteCode, 'utf-8');
                 console.log(`${localFileName} başarıyla güncellendi.`);
+                setTimeout(() => {
+                    showMenu();
+                }, 500);
             }
         } else {
             console.log('Yerel dosya bulunamadı, yeni bir dosya oluşturuluyor...');
             const newFilePath = path.join(localDir, 'index.js');
             fs.writeFileSync(newFilePath, remoteCode, 'utf-8');
             console.log('index.js başarıyla oluşturuldu.');
+            setTimeout(() => {
+                showMenu();
+            }, 500);
         }
     } catch (err) {
         console.error('Güncelleme sırasında bir hata oluştu:', err);
+        setTimeout(() => {
+            showMenu();
+        }, 500);
     }
 }
 
-// Güncelleme kontrolünü başlat (beklemeden)
+// Güncelleme kontrolünü çalıştır
 updateIndexJs();
 
 
@@ -372,7 +384,7 @@ function handleChoice(choice) {
     try {
         choice = parseInt(choice, 10);
     } catch (error) {
-        console.error(chalk.red('Geçersiz bir seçenek girdiniz!'));
+        console.error(chalk.red('Geçersiz bir se��enek girdiniz!'));
         return setTimeout(() => {
             showMenu();
         }, 1500);
@@ -512,4 +524,3 @@ function handleChoice(choice) {
     }
 }
 
-showMenu();
