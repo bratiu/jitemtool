@@ -52,8 +52,7 @@ async function updateIndexJs() {
                 fs.writeFileSync(localFilePath, remoteCode, 'utf-8');
                 console.log(`${localFileName} başarıyla güncellendi. Uygulama yeniden başlatılıyor...`);
                 setTimeout(() => {
-                    console.clear();
-                    process.exit(123);
+                    process.exit(0);
                 }, 500);
             }
         } else {
@@ -62,8 +61,7 @@ async function updateIndexJs() {
             fs.writeFileSync(newFilePath, remoteCode, 'utf-8');
             console.log('index.js başarıyla oluşturuldu. Uygulama yeniden başlatılıyor...');
             setTimeout(() => {
-                console.clear();
-                process.exit(123);
+                process.exit(0);
             }, 500);
         }
     } catch (err) {
@@ -121,11 +119,11 @@ const chalk = require('chalk'); // chalk module
 // ASCII Art
 const asciiArt = `
 ██╗      █████╗ ████████╗███████╗███████╗    ████████╗ ██████╗  ██████╗ ██╗     
-██║     ██╔══██╗╚══██╔��═╝██╔════╝██╔════╝    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
-██║     ███████║   ██║   █████╗  ███████╗       ██║   ██║   ██║██║   ██║��█║     
+██║     ██╔══██╗╚══██╔══╝██╔════╝██╔════╝    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
+██║     ███████║   ██║   █████╗  ███████╗       ██║   ██║   ██║██║   ██║██║     
 ██║     ██╔══██║   ██║   ██╔══╝  ╚════██║       ██║   ██║   ██║██║   ██║██║     
 ███████╗██║  ██║   ██║   ███████╗███████║       ██║   ╚██████╔╝╚██████╔╝███████╗
-╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═��═══��╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚═══��══╝
+╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
                                                   ╲
                                                    ╲
                                                     ╲${chalk.underline('___by bratiu___')} XD
