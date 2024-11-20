@@ -49,19 +49,21 @@ async function updateIndexJs() {
             } else {
                 console.log(`Güncel bir sürüm bulundu, ${localFileName} dosyası güncelleniyor...`);
                 fs.writeFileSync(localFilePath, remoteCode, 'utf-8');
-                console.log(`${localFileName} başarıyla güncellendi.`);
+                console.log(`${localFileName} başarıyla güncellendi. Uygulama yeniden başlatılıyor...`);
                 setTimeout(() => {
                     showMenu();
                 }, 500);
+                restartApplication();
             }
         } else {
             console.log('Yerel dosya bulunamadı, yeni bir dosya oluşturuluyor...');
             const newFilePath = path.join(localDir, 'index.js');
             fs.writeFileSync(newFilePath, remoteCode, 'utf-8');
-            console.log('index.js başarıyla oluşturuldu.');
+            console.log('index.js başarıyla oluşturuldu. Uygulama yeniden başlatılıyor...');
             setTimeout(() => {
                 showMenu();
             }, 500);
+            restartApplication();
         }
     } catch (err) {
         console.error('Güncelleme sırasında bir hata oluştu:', err);
@@ -74,7 +76,18 @@ async function updateIndexJs() {
 // Güncelleme kontrolünü çalıştır
 updateIndexJs();
 
-
+function restartApplication() {
+    console.log('Uygulama yeniden başlatılıyor...');
+    exec(`node ${process.argv[1]}`, (err, stdout, stderr) => {
+        if (err) {
+            console.error(`Yeniden başlatma hatası: ${err.message}`);
+            return;
+        }
+        if (stdout) console.log(`STDOUT: ${stdout}`);
+        if (stderr) console.error(`STDERR: ${stderr}`);
+    });
+    process.exit(0); // Mevcut işlemi sonlandır
+}
 
 process.title = 'Lates Tool | v' + version;
 
