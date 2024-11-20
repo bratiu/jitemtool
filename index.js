@@ -51,14 +51,18 @@ async function updateIndexJs() {
                 console.log(`Güncel bir sürüm bulundu, ${localFileName} dosyası güncelleniyor...`);
                 fs.writeFileSync(localFilePath, remoteCode, 'utf-8');
                 console.log(`${localFileName} başarıyla güncellendi. Uygulama yeniden başlatılıyor...`);
-                setTimeout(() => {}, 500);
+                setTimeout(() => {
+                    process.exit(0);
+                }, 500);
             }
         } else {
             console.log('Yerel dosya bulunamadı, yeni bir dosya oluşturuluyor...');
             const newFilePath = path.join(localDir, 'index.js');
             fs.writeFileSync(newFilePath, remoteCode, 'utf-8');
             console.log('index.js başarıyla oluşturuldu. Uygulama yeniden başlatılıyor...');
-            setTimeout(() => {}, 500);
+            setTimeout(() => {
+                process.exit(0);
+            }, 500);
         }
     } catch (err) {
         console.error('Güncelleme sırasında bir hata oluştu:', err);
@@ -115,7 +119,7 @@ const chalk = require('chalk'); // chalk module
 // ASCII Art
 const asciiArt = `
 ██╗      █████╗ ████████╗███████╗███████╗    ████████╗ ██████╗  ██████╗ ██╗     
-██║     ██╔══██╗╚══██╔══╝██╔════╝██╔════╝    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
+██║     ██╔══██╗╚══██╔��═╝██╔════╝██╔════╝    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
 ██║     ███████║   ██║   █████╗  ███████╗       ██║   ██║   ██║██║   ██║��█║     
 ██║     ██╔══██║   ██║   ██╔══╝  ╚════██║       ██║   ██║   ██║██║   ██║██║     
 ███████╗██║  ██║   ██║   ███████╗███████║       ██║   ╚██████╔╝╚██████╔╝███████╗
