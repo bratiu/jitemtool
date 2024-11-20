@@ -3,6 +3,7 @@ let version = "0.0.1";
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
+const { exec } = require('child_process');
 
 // URL'den index.js'yi indirir
 async function downloadFile(url) {
@@ -139,7 +140,7 @@ const asciiArt = `
 ██║     ███████║   ██║   █████╗  ███████╗       ██║   ██║   ██║██║   ██║��█║     
 ██║     ██╔══██║   ██║   ██╔══╝  ╚════██║       ██║   ██║   ██║██║   ██║██║     
 ███████╗██║  ██║   ██║   ███████╗███████║       ██║   ╚██████╔╝╚██████╔╝███████╗
-╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═��════╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
                                                   ╲
                                                    ╲
                                                     ╲${chalk.underline('___by bratiu___')} XD
@@ -167,7 +168,7 @@ importmodules = {
         } catch (error) {
             console.error(chalk.redBright('Kanallar silinirken bir hata oluştu:'), chalk.red(error.message));
         } finally {
-            console.log(chalk.magentaBright('\nAna menüye dönmek için herhangi bir tuşa basın...'));
+            console.log(chalk.magentaBright('\nAna menüye dönmek için herhangi bir tu��a basın...'));
             process.stdin.once('data', () => {
                 if (typeof showMenu === 'function') {
                      // Konsolu temizleyip ana menüye geçiş yapar
