@@ -52,9 +52,8 @@ async function updateIndexJs() {
                 fs.writeFileSync(localFilePath, remoteCode, 'utf-8');
                 console.log(`${localFileName} başarıyla güncellendi. Uygulama yeniden başlatılıyor...`);
                 setTimeout(() => {
-                    showMenu();
+                    restartApplication();
                 }, 500);
-                restartApplication();
             }
         } else {
             console.log('Yerel dosya bulunamadı, yeni bir dosya oluşturuluyor...');
@@ -62,9 +61,8 @@ async function updateIndexJs() {
             fs.writeFileSync(newFilePath, remoteCode, 'utf-8');
             console.log('index.js başarıyla oluşturuldu. Uygulama yeniden başlatılıyor...');
             setTimeout(() => {
-                showMenu();
+                restartApplication();
             }, 500);
-            restartApplication();
         }
     } catch (err) {
         console.error('Güncelleme sırasında bir hata oluştu:', err);
@@ -74,12 +72,12 @@ async function updateIndexJs() {
     }
 }
 
-// Güncelleme kontrolünü çalıştır
+// Güncelleme kontrolünü ��alıştır
 updateIndexJs();
 
 function restartApplication() {
     console.log('Uygulama yeniden başlatılıyor...');
-    exec(`node ${process.argv[1]}`, (err, stdout, stderr) => {
+    exec(`node index.js`, (err, stdout, stderr) => {
         if (err) {
             console.error(`Yeniden başlatma hatası: ${err.message}`);
             return;
