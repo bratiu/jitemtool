@@ -1,3 +1,4 @@
-x:
+@echo off
+:restart
 node index.js
-goto x
+goto restart
