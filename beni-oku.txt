@@ -1,0 +1,2 @@
+sadece baslat.bat'a tıkla eğer bana güvenmiyorsan sağ tıklayıp düzenle diyerek içinde kodları görebilirsin
+ha bide nodejs yüklü olması lazım pcnde
