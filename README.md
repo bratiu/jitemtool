@@ -30,7 +30,7 @@ Gölge Tool, bratiu tarafından oluşturulmuş, Discord sunucularında çeşitli
 ## Gereksinimler
 
 - **Windows İşletim Sistemi** (Çünkü .bat dosyaları kullanarak çalışır).
-- Eğer istenirse gerekli bağımlılıkların kurulu olduğundan emin olun.
+- Node.js (https://nodejs.org/en/download/prebuilt-installer/current).
 
 ## Uyarı
 
