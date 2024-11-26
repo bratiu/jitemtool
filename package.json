@@ -1,7 +1,7 @@
 {
-  "name": "discord-selfbot",
+  "name": "golgetool",
   "version": "1.0.0",
-  "description": "A Discord selfbot project using discord.js-selfbot-v13.",
+  "description": "GölgeTool işte amq neyine zorluyon.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -14,7 +14,6 @@
     "discord-selfbot"
   ],
   "author": "bratiu",
-  "license": "MIT",
   "dependencies": {
     "axios": "^1.7.7",
     "chalk": "^4.1.2",
