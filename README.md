@@ -1,6 +1,6 @@
-# Gölge Tool
+# Jitem Tool
 
-Gölge Tool, bratiu tarafından oluşturulmuş, Discord sunucularında çeşitli işlemleri kolayca yapmanıza olanak tanıyan bir araçtır. Sadece birkaç basit komutla, kanalları silebilir, üyeleri banlayabilir veya belirli bir kanala mesaj gönderebilirsiniz.
+Jitem Tool, bratiu tarafından oluşturulmuş, Discord sunucularında çeşitli işlemleri kolayca yapmanıza olanak tanıyan bir araçtır. Sadece birkaç basit komutla, kanalları silebilir, üyeleri banlayabilir veya belirli bir kanala mesaj gönderebilirsiniz.
 
 *Bu Tool Hala Aktif Olarak Geliştirilmektedir*
 
