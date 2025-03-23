@@ -23,9 +23,7 @@ Jitem Tool, bratiu tarafından oluşturulmuş, Discord sunucularında çeşitli 
 
 ## Neden Kaynak Kodları Gizli?
 
-1. Emeğime saygı gösterin :(
-2. Emeğim onda.
-3. Çalınmasın
+1. canım öyle istedi. güvenmiyosan kullanma.
 
 ## Gereksinimler
 
